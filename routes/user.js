@@ -1,5 +1,5 @@
 import { Router } from "express";
-import userController from "../controllers/user.controller";
+import userController from "../controllers/user.controller.js";
 
 const router = Router();
 
@@ -26,6 +26,6 @@ router.get('/hello', (req, res) => {
   })
 })
 
-router.post('/user/:id', auth, userController)
+router.post('/user/:id', auth, userController.updateUser)
 
 export default router;
