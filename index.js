@@ -1,5 +1,5 @@
 import express from "express";
-import routes from './routes';
+import routes from './routes/user.js';
 
 const logger = (req, res, next) => {
   const startTime = Date.now();

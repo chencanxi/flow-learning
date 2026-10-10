@@ -26,9 +26,6 @@ router.get('/hello', (req, res) => {
   })
 })
 
-router.post('/user/:id', auth, (req, res) => {
-
-  userController(req, res)
-})
+router.post('/user/:id', auth, userController)
 
 export default router;
