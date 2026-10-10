@@ -1,4 +1,6 @@
 import { Router } from "express";
+import userController from "../controllers/user.controller";
+
 const router = Router();
 
 const auth = (req, res, next) => {
@@ -25,15 +27,8 @@ router.get('/hello', (req, res) => {
 })
 
 router.post('/user/:id', auth, (req, res) => {
-  const id = req.params.id;
-  const nickname = req.body.nickname;
-  const token = req.headers.token;
 
-  res.json({
-    id,
-    nickname,
-    token
-  })
+  userController(req, res)
 })
 
 export default router;
