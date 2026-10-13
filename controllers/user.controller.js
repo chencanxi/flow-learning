@@ -6,11 +6,6 @@ const updateUser = (req, res, next) => {
   const nickname = req.body.nickname;
   const user = req.user;
 
-  if (!nickname) {
-    const err = new AppError('nickname required', 400);
-    return next(err);
-  }
-
   // 暂时可以不用async/await
   const result = userService.updateUser({ id, nickname, operator: user });
 
