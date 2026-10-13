@@ -1,6 +1,6 @@
 import express from "express";
 import routes from './routes/user.js';
-import { errorHandle } from './middlewares/errorHandler.js';
+import { errorHandler } from "./middlewares/errorHandler.js";
 
 const logger = (req, res, next) => {
   const startTime = Date.now();
@@ -28,7 +28,7 @@ app.get('/health', (_req, res) => {
 
 app.use('/api', routes);
 
-app.use(errorHandle);
+app.use(errorHandler);
 
 app.listen(3000, () => {
   console.log("server start")

@@ -1,8 +1,7 @@
-
+import { AppError } from "../common/index.js";
 const updateUser = ({ id, nickname, operator }) => {
   if (!nickname) {
-    const err = new Error('nickname required');
-    err.statusCode = 400;
+    const err = new AppError('nickname required', 400);
     throw err;
   }
 
