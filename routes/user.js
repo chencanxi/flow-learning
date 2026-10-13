@@ -1,14 +1,12 @@
 import { Router } from "express";
 import userController from "../controllers/user.controller.js";
+import { AppError } from "../common/index.js";
 
 const router = Router();
 
-const auth = (req, res, next) => {
+const auth = (req, _res, next) => {
   if (req.headers.token !== '123456') {
-    return res.status(401).json({
-      code: 401,
-      message: 'Unauthorized'
-    })
+    return next(new AppError('Unauthorized', 401));
   }
   req.user = {
     id: 1,
